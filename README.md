@@ -6,7 +6,7 @@ Statistics is often taught by showing students formulas and worked examples befo
 
 Built with: **React** · **TypeScript** · **FastAPI** · **PostgreSQL** · **SQLAlchemy** · **FAISS** · **BM25** · **Ollama**
 
-![Interactive Lesson Dashboard](screenshots/03-interactive-lesson.png)
+![Interactive Simulation](screenshots/04-statistical-simulation.png)
 
 ## The Problem
 
@@ -28,13 +28,9 @@ DataSpark is designed to actively involve students in the learning process:
 Complex concepts like hypothesis testing and probability distributions are broken down into interactive components. Students adjust inputs and instantly see how the curves and statistics change.
 ![Hypothesis Testing Interaction](screenshots/02-three-methods-testing.png)
 
-### Experiment with statistical ideas
-Rich statistical simulations allow students to test their intuition. Users can drop balls in a Plinko-style board or roll dice to witness the Law of Large Numbers and Central Limit Theorem in real-time.
-![Simulation Experience](screenshots/04-statistical-simulation.png)
-
 ### Track learning over time
 Students stay engaged through a gamified progress dashboard. They earn XP, unlock achievements, and track their mastery across different statistical modules.
-![Gamification Dashboard](screenshots/05-progress-gamification.png)
+![Gamification Dashboard](screenshots/01-hero-dashboard.png)
 
 ### Get help without leaving the lesson
 A contextual learning assistant is available directly in the UI. When a student gets stuck, the local Retrieval-Augmented Generation (RAG) architecture safely fetches definitions and helps explain the concept without simply giving away the answer.
