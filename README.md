@@ -6,7 +6,7 @@ Statistics is often taught by showing students formulas and worked examples befo
 
 Built with: **React** · **TypeScript** · **FastAPI** · **PostgreSQL** · **SQLAlchemy** · **FAISS** · **BM25** · **Ollama**
 
-![Gamification Dashboard](screenshots/01-hero-dashboard.png)
+![DataSpark Architecture](diagrams/dataspark-architecture.png)
 
 ## The Problem
 
@@ -39,7 +39,7 @@ A contextual learning assistant is available directly in the UI. When a student 
 
 DataSpark is a full-stack application with a React/TypeScript client, FastAPI application layer, persistent learning-state storage, and a separate retrieval pipeline for contextual learning support.
 
-![DataSpark Architecture](diagrams/dataspark-architecture.png)
+
 
 The learning experience and AI assistant are deliberately separated. Core lessons, simulations, quizzes, progress tracking, and gamification do not depend on the assistant. The retrieval pipeline searches verified statistics material and supplies relevant context to the locally hosted language model when a student asks for help.
 
