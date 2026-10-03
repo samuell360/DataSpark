@@ -33,7 +33,6 @@ Students stay engaged through a gamified progress dashboard. They earn XP, unloc
 
 ### Get help without leaving the lesson
 A contextual learning assistant is available directly in the UI. When a student gets stuck, the local Retrieval-Augmented Generation (RAG) architecture safely fetches definitions and helps explain the concept without simply giving away the answer.
-![Local Learning Assistant](screenshots/06-learning-assistant.png)
 
 ## How It Works
 
