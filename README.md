@@ -6,7 +6,7 @@ Statistics is often taught by showing students formulas and worked examples befo
 
 Built with: **React** · **TypeScript** · **FastAPI** · **PostgreSQL** · **SQLAlchemy** · **FAISS** · **BM25** · **Ollama**
 
-![Interactive Simulation](screenshots/04-statistical-simulation.png)
+![Interactive Simulation]
 
 ## The Problem
 
