@@ -1,35 +1,51 @@
-graph TD
-    subgraph Client [Frontend - React/Vite SPA]
-        UI[User Interface]
-        State[React Context / Auth]
-        Router[React Router]
-        UI --> State
-        UI --> Router
-    end
-
-    subgraph Server [Backend - FastAPI on Linux systemd]
-        API[FastAPI Endpoints]
-        Auth[JWT Auth & bcrypt]
-        DB_Layer[SQLAlchemy ORM]
-        API --> Auth
-        API --> DB_Layer
-    end
-
-    subgraph Database [Storage]
-        PG[(PostgreSQL)]
-    end
-
-    subgraph AI_Pipeline [Local RAG Pipeline]
-        Router_AI[Cross-Encoder Reranker]
-        FAISS[(FAISS Vector DB)]
-        BM25[(BM25 Lexical DB)]
-        Ollama[Ollama / Llama 3]
-        
-        Router_AI --> FAISS
-        Router_AI --> BM25
-        Router_AI --> Ollama
-    end
-
-    Client -- HTTP/REST --> Server
-    DB_Layer -- asyncpg --> PG
-    API -- Internal API --> AI_Pipeline
+flowchart TD
+    DS[**DATASPARK**]
+    
+    LE[**LEARNING EXPERIENCE**]
+    LA[**LEARNING ASSISTANT**]
+    
+    DS --- LE
+    DS --- LA
+    
+    %% Left Branch
+    L[Lessons]
+    S[Simulations]
+    Q[Quizzes]
+    
+    LE --- L
+    LE --- S
+    LE --- Q
+    
+    React[React + TypeScript]
+    
+    L --- React
+    S --- React
+    Q --- React
+    
+    %% Right Branch
+    Query[Query]
+    Retrieval[Retrieval]
+    LLM[Local LLM]
+    
+    LA --- Query
+    LA --- Retrieval
+    LA --- LLM
+    
+    FB[FAISS + BM25]
+    Rerank[Reranking]
+    
+    Retrieval --- FB
+    FB --- Rerank
+    
+    %% Join at FastAPI
+    API[FastAPI]
+    
+    React --- API
+    Rerank --- API
+    
+    %% Bottom Branch
+    DB[(PostgreSQL)]
+    XP[Progress / XP / Gamification]
+    
+    API --- DB
+    API --- XP

@@ -1,58 +1,80 @@
 # DataSpark
 
-I built DataSpark because I wanted a better way for people to learn statistics—one focused on interactive simulations and real-time feedback instead of just reading textbooks. It's a full-stack platform designed to help users experiment with statistical concepts, see how data changes in real-time, and get contextual help along the way.
+An interactive statistics learning platform built around experimentation, simulation, and immediate feedback.
 
-![DataSpark Dashboard](screenshots/01-hero-dashboard.png)
+Statistics is often taught by showing students formulas and worked examples before asking them to solve problems on their own. DataSpark takes a different approach: students can manipulate data, run simulations, test ideas, see distributions change, and get feedback while they are learning.
 
-## What is this?
-DataSpark is an interactive learning environment I engineered to make statistics more intuitive. Users can run statistical simulations, explore datasets, track their learning progress, and ask a local AI assistant questions when they get stuck. 
+Built with: **React** · **TypeScript** · **FastAPI** · **PostgreSQL** · **SQLAlchemy** · **FAISS** · **BM25** · **Ollama**
 
-I designed the architecture to be fast and self-contained. The backend is built with FastAPI and PostgreSQL, and the frontend is a React SPA using Vite. I also integrated a local RAG (Retrieval-Augmented Generation) pipeline using Ollama so the learning assistant can provide answers based strictly on verified statistical definitions without relying on external APIs.
+![Interactive Lesson Dashboard](screenshots/03-interactive-lesson.png)
 
-## Why I Built It
-Learning statistics can be dry and intimidating. I wanted to build a project that solved a real problem while giving me hands-on experience building a complex, full-stack application from scratch. This project pushed me to learn about:
-- Managing a React frontend with complex state.
-- Building a performant Python backend with FastAPI and SQLAlchemy.
-- Setting up a local, privacy-first AI pipeline with FAISS and Ollama.
-- Deploying a full system natively on a Linux server using systemd and Nginx.
+## The Problem
 
-## Key Features
+Statistics can be difficult to learn when students only see the finished formula or answer. Concepts like sampling variability, probability distributions, hypothesis testing, and confidence intervals become much easier to understand when students can actually experiment with them.
 
-* **Interactive Simulations**: Visualizations that let users manipulate variables and instantly see how statistical distributions and outcomes change.
-* **Progress Tracking**: A gamified learning path with modules, lessons, and a dashboard to track progress.
-* **Local RAG Assistant**: A completely local AI assistant that helps answer questions based on a curated set of statistical concepts.
-* **Authentication & Profiles**: Secure user registration and login using JWTs and bcrypt password hashing.
+I built DataSpark around that idea. Instead of treating statistics as a sequence of formulas to memorize, the platform gives students ways to manipulate variables, run experiments, visualize outcomes, make predictions, and receive feedback as they work.
 
-## Tech Stack
+## How DataSpark Approaches It
 
-Here’s what I used to build the platform:
+DataSpark is designed to actively involve students in the learning process:
+- **Interactive lessons** that visually explain complex statistical concepts.
+- **Statistical simulations** that let students play with parameters and instantly observe the results.
+- **Immediate feedback** loops to correct misunderstandings early.
+- **Contextual learning support** powered by a completely local AI assistant that references verified curriculum.
 
-**Frontend**
-* React 18 (Vite)
-* TypeScript
-* Tailwind CSS
-* React Router & Context API for state management
+## Product Experience
 
-**Backend**
-* FastAPI (Python)
-* PostgreSQL (production) & SQLite (local dev)
-* SQLAlchemy (ORM) & Alembic (Migrations)
-* Custom JWT Authentication & bcrypt
+### Learn by interacting
+Complex concepts like hypothesis testing and probability distributions are broken down into interactive components. Students adjust inputs and instantly see how the curves and statistics change.
+![Hypothesis Testing Interaction](screenshots/02-three-methods-testing.png)
 
-**AI & Search (Local)**
-* Ollama (Llama 3 for generation)
-* FAISS (Dense vector retrieval)
-* BM25 (Lexical search)
-* Cross-Encoder (Reranking)
+### Experiment with statistical ideas
+Rich statistical simulations allow students to test their intuition. Users can drop balls in a Plinko-style board or roll dice to witness the Law of Large Numbers and Central Limit Theorem in real-time.
+![Simulation Experience](screenshots/04-statistical-simulation.png)
 
-**Deployment**
-* Native Ubuntu Linux
-* systemd (Process management)
-* Nginx (Reverse proxy)
+### Track learning over time
+Students stay engaged through a gamified progress dashboard. They earn XP, unlock achievements, and track their mastery across different statistical modules.
+![Gamification Dashboard](screenshots/05-progress-gamification.png)
 
-## Project Status
+### Get help without leaving the lesson
+A contextual learning assistant is available directly in the UI. When a student gets stuck, the local Retrieval-Augmented Generation (RAG) architecture safely fetches definitions and helps explain the concept without simply giving away the answer.
+![Local Learning Assistant](screenshots/06-learning-assistant.png)
 
-This repository is a public showcase of the project's architecture and design. The actual application source code is private. If you're a recruiter or hiring manager and would like a live demo or a deeper dive into the code, I'd be happy to walk you through it!
+## How It Works
 
----
-*For more details on how the system is built, check out the [Architecture Overview](docs/architecture.md).*
+DataSpark is a full-stack application with a React/TypeScript client, FastAPI application layer, persistent learning-state storage, and a separate retrieval pipeline for contextual learning support.
+
+![DataSpark Architecture](diagrams/dataspark-architecture.png)
+
+The learning experience and AI assistant are deliberately separated. Core lessons, simulations, quizzes, progress tracking, and gamification do not depend on the assistant. The retrieval pipeline searches verified statistics material and supplies relevant context to the locally hosted language model when a student asks for help.
+
+## Technical Highlights
+
+- **Performant Backend**: Built asynchronously with FastAPI and `asyncpg` to handle concurrent database connections and fast response times.
+- **Rich SPA Client**: A React 18 single-page application heavily typed with TypeScript and styled with Tailwind CSS, utilizing React Router and Context API for modular state management.
+- **Local AI Pipeline**: A fully isolated, privacy-first RAG implementation utilizing Ollama (Llama 3), FAISS for dense vector search, BM25 for lexical search, and a Cross-Encoder for precise reranking.
+- **Native Deployment**: Engineered for a native Ubuntu Linux production environment using `systemd` process managers and Nginx reverse proxying, demonstrating robust systems engineering.
+- **Secure Authentication**: Built from the ground up with custom JWT handling and `bcrypt` password hashing.
+
+## Research Foundation
+
+DataSpark's learning methodology is directly influenced by the GAISE (Guidelines for Assessment and Instruction in Statistics Education) College Report, emphasizing statistical literacy, active learning, and the use of real data with technology.
+*Read more about the pedagogical design in the [Research Foundation](docs/research-foundation.md).*
+
+## About the Source Code
+
+DataSpark is under active development, so the application source code is maintained in a private repository. This public repository is intended as a technical and product showcase—it documents the problem I am working on, the system architecture, the learning experience, and selected parts of the application without publishing the implementation.
+
+The screenshots and architecture documentation here reflect the working application. I continue to develop and test the full platform privately.
+
+## Current Status / What I'm Working On
+
+I am currently:
+- Expanding the descriptive statistics module with new interactive visualization components.
+- Refining the color palette and UI system for improved accessibility.
+- Writing deeper end-to-end (E2E) and contract tests to ensure the API and frontend remain robust.
+
+## Built by
+
+**Samuel M. Sarpong**  
+[Connect on LinkedIn](https://linkedin.com/in/samuell360)
