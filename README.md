@@ -26,7 +26,6 @@ DataSpark is designed to actively involve students in the learning process:
 
 ### Learn by interacting
 Complex concepts like hypothesis testing and probability distributions are broken down into interactive components. Students adjust inputs and instantly see how the curves and statistics change.
-![Hypothesis Testing Interaction](screenshots/02-three-methods-testing.png)
 
 ### Track learning over time
 Students stay engaged through a gamified progress dashboard. They earn XP, unlock achievements, and track their mastery across different statistical modules.
