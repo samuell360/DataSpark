@@ -2,7 +2,7 @@
 
 An interactive statistics learning platform built around experimentation, simulation, and immediate feedback.
 
-Statistics is often taught by showing students formulas and worked examples before asking them to solve problems on their own. DataSpark takes a different approach: students can manipulate data, run simulations, test ideas, see distributions change, and get feedback while they are learning.
+Statistics is often taught by showing students formulas and worked examples before asking them to solve problems on their own. DataSpark takes a different approach: students can manipulate data, run simulations, and receive immediate feedback as they learn.
 
 Built with: **React** · **TypeScript** · **FastAPI** · **PostgreSQL** · **SQLAlchemy** · **FAISS** · **BM25** · **Ollama**
 ![Local Learning Assistant](screenshots/06-learning-assistant.png)
@@ -10,9 +10,9 @@ Built with: **React** · **TypeScript** · **FastAPI** · **PostgreSQL** · **SQ
 
 ## The Problem
 
-Statistics can be difficult to learn when students only see the finished formula or answer. Concepts like sampling variability, probability distributions, hypothesis testing, and confidence intervals become much easier to understand when students can actually experiment with them.
+Statistics can be difficult to learn when students only see the finished formula or answer. Concepts like sampling variability, probability distributions, hypothesis testing, and confidence intervals may feel abstract without hands-on practice.
 
-I built DataSpark around that idea. Instead of treating statistics as a sequence of formulas to memorize, the platform gives students ways to manipulate variables, run experiments, visualize outcomes, make predictions, and receive feedback as they work.
+I built DataSpark around that idea. Instead of treating statistics as a sequence of formulas to memorize, the platform gives students ways to manipulate variables, run experiments, visualize outcomes, and test their understanding in context.
 
 ## How DataSpark Approaches It
 
@@ -32,7 +32,10 @@ Students stay engaged through a gamified progress dashboard. They earn XP, unloc
 ![Gamification Dashboard](screenshots/01-hero-dashboard.png)
 
 ### Get help without leaving the lesson
-A contextual learning assistant is available directly in the UI. When a student gets stuck, the local Retrieval-Augmented Generation (RAG) architecture safely fetches definitions and helps explain the concept without simply giving away the answer.
+A contextual learning assistant is available directly in the UI. When a student gets stuck, the local Retrieval-Augmented Generation (RAG) architecture safely fetches definitions and helps explain the concepts without interrupting the learning flow.
+
+### See the product in action
+![Product Experience](Screenshot%202026-10-02%20224943.png)
 
 ## How It Works
 
@@ -40,24 +43,24 @@ DataSpark is a full-stack application with a React/TypeScript client, FastAPI ap
 
 ![DataSpark Architecture](diagrams/dataspark-architecture.png)
 
-The learning experience and AI assistant are deliberately separated. Core lessons, simulations, quizzes, progress tracking, and gamification do not depend on the assistant. The retrieval pipeline searches verified statistics material and supplies relevant context to the locally hosted language model when a student asks for help.
+The learning experience and AI assistant are deliberately separated. Core lessons, simulations, quizzes, progress tracking, and gamification do not depend on the assistant. The retrieval pipeline searches verified curriculum content to answer questions in context, while the main app remains focused on statistical learning.
 
 ## Technical Highlights
 
 - **Performant Backend**: Built asynchronously with FastAPI and `asyncpg` to handle concurrent database connections and fast response times.
 - **Rich SPA Client**: A React 18 single-page application heavily typed with TypeScript and styled with Tailwind CSS, utilizing React Router and Context API for modular state management.
-- **Local AI Pipeline**: A fully isolated, privacy-first RAG implementation utilizing Ollama (Llama 3), FAISS for dense vector search, BM25 for lexical search, and a Cross-Encoder for precise reranking.
+- **Local AI Pipeline**: A fully isolated, privacy-first RAG implementation utilizing Ollama (Llama 3), FAISS for dense vector search, BM25 for lexical search, and a Cross-Encoder for precise reranking of retrieval results.
 - **Native Deployment**: Engineered for a native Ubuntu Linux production environment using `systemd` process managers and Nginx reverse proxying, demonstrating robust systems engineering.
 - **Secure Authentication**: Built from the ground up with custom JWT handling and `bcrypt` password hashing.
 
 ## Research Foundation
 
-DataSpark's learning methodology is directly influenced by the GAISE (Guidelines for Assessment and Instruction in Statistics Education) College Report, emphasizing statistical literacy, active learning, and the use of real data with technology.
+DataSpark's learning methodology is directly influenced by the GAISE (Guidelines for Assessment and Instruction in Statistics Education) College Report, emphasizing statistical literacy, active learning, and conceptual understanding over rote memorization.
 *Read more about the pedagogical design in the [Research Foundation](docs/research-foundation.md).*
 
 ## About the Source Code
 
-DataSpark is under active development, so the application source code is maintained in a private repository. This public repository is intended as a technical and product showcase—it documents the problem I am working on, the system architecture, the learning experience, and selected parts of the application without publishing the implementation.
+DataSpark is under active development, so the application source code is maintained in a private repository. This public repository is intended as a technical and product showcase—it documents the design decisions, product direction, and learning architecture behind the platform.
 
 The screenshots and architecture documentation here reflect the working application. I continue to develop and test the full platform privately.
 
