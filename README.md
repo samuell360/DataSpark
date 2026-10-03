@@ -23,6 +23,7 @@ DataSpark is designed to actively involve students in the learning process:
 - **Contextual learning support** powered by a completely local AI assistant that references verified curriculum.
 
 ## Product Experience
+![Product Experience](Screenshot%202026-10-02%20224943.png)
 
 ### Learn by interacting
 Complex concepts like hypothesis testing and probability distributions are broken down into interactive components. Students adjust inputs and instantly see how the curves and statistics change.
@@ -34,8 +35,7 @@ Students stay engaged through a gamified progress dashboard. They earn XP, unloc
 ### Get help without leaving the lesson
 A contextual learning assistant is available directly in the UI. When a student gets stuck, the local Retrieval-Augmented Generation (RAG) architecture safely fetches definitions and helps explain the concepts without interrupting the learning flow.
 
-### See the product in action
-![Product Experience](Screenshot%202026-10-02%20224943.png)
+
 
 ## How It Works
 
